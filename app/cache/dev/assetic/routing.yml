@@ -1,0 +1,5 @@
+_assetic:
+    resource: .
+    type: assetic
+_app:
+    resource: /home/dirk/workspace/relaxstyle/app/config/routing_dev.yml
