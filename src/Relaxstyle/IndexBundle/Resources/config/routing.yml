@@ -1,0 +1,4 @@
+_Index: 
+     resource: "@RelaxstyleIndexBundle/Controller/DefaultController.php"
+     type:     annotation
+     prefix:  /

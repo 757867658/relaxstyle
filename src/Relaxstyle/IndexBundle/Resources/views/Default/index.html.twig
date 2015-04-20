@@ -1,1 +1,225 @@
-Hello {{ name }}!
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="keywords" content="Photography, Photo Images, Responsive, Business, Corporate, Gallery, Notebook" />
+<meta name="description" content="PhotoBax Responsive Photography Business Template" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
+
+{% block stylesheets %}
+<link href="{{ asset('bundles/relaxstyleindex/css/style.css')}}" rel="stylesheet"  />
+ <link href="{{ asset('bundles/relaxstyleindex/js/superfish/superfish.css')}}" rel="stylesheet"  media="screen" />
+<link href="{{ asset('bundles/relaxstyleindex/js/fancybox/jquery.fancybox-1.3.4.css')}}" rel="stylesheet"  />
+<link href="{{ asset('bundles/relaxstyleindex/settings/styling.css')}}" rel="stylesheet"  />
+{% endblock %}
+
+<link rel="alternate" type="application/rss+xml" title="#" href="#" />
+<link rel="shortcut icon" href="#" />
+
+{% block javascripts %}
+<script type="text/javascript" src="{{ asset('bundles/relaxstyleindex/js/jquery-1.7.2.min.js')}}"></script>
+<script type="text/javascript" src="{{ asset('bundles/relaxstyleindex/js/jquery.trigger.js')}}"></script>
+<script type="text/javascript" src="{{ asset('bundles/relaxstyleindex/js/scrolltop.js')}}"></script>
+<script type="text/javascript" src="{{ asset('bundles/relaxstyleindex/js/flickr/jflickrfeed.min.js')}}"></script>
+<script type="text/javascript" src="{{ asset('bundles/relaxstyleindex/js/flickr/setup.js')}}"></script>
+<script type="text/javascript" src="{{ asset('bundles/relaxstyleindex/js/fancybox/jquery.mousewheel-3.0.4.pack.js')}}"></script>
+<script type="text/javascript" src="{{ asset('bundles/relaxstyleindex/js/fancybox/jquery.fancybox-1.3.4.pack.js')}}"></script>
+<script type="text/javascript" src="{{ asset('bundles/relaxstyleindex/js/fancybox/jquery.fancybox-1.3.4.js')}}"></script>
+<script type="text/javascript" src="{{ asset('bundles/relaxstyleindex/js/superfish/superfish.js')}}"></script>
+<script type="text/javascript" src="{{ asset('bundles/relaxstyleindex/js/tipsy/jquery.tipsy.js')}}"></script>
+<script type='text/javascript'>
+	$(function() {    
+		$('.sociable li a img').tipsy({gravity: 'n'});		
+	});
+</script>
+<script type="text/javascript" src="{{ asset('bundles/relaxstyleindex/js/selectbox.js')}}"></script>
+<script type="text/javascript" src="{{ asset('bundles/relaxstyleindex/js/css3-mediaqueries.js')}}"></script>
+<script type="text/javascript" src="{{ asset('bundles/relaxstyleindex/js/hover.js')}}"></script>
+<script type="text/javascript" src="{{ asset('bundles/relaxstyleindex/js/jquery.tweet.js')}}"></script>
+<script type="text/javascript">
+	jQuery(function($){
+		$("#tweet").tweet({
+			avatar_size: 32,
+			count: 2,
+		query: "themeforest",
+		loading_text: "Loading Tweets..."
+		});
+	});
+</script>
+{% endblock %}
+
+<title>This is an Awesome Responsive Website Template</title>
+</head>
+<body>
+  <!--HEADER-->
+  
+  {% block menu%}
+  <div id="headera">
+  <div id="header" class="clear">
+    <!--LOGO-->
+    <div class="logo">
+      <h1><a href="index.html"><img src="{{ asset('bundles/relaxstyleindex/img/logo.png')}}" alt="" title="" /></a></h1>
+    </div>
+    <!--MENU-->
+    <nav>
+      <ul class="sf-menu">
+        <li class="active"><a href="index.html">Home</a>
+          <ul>
+            <li><a href="index-alternate.html">Alternate Homepage 1</a></li>
+            <li><a href="index-alternate-1.html">Alternate Homepage 2</a></li>
+            <li><a href="index-fullwidth.html">Alternate Fullwidth</a></li>
+            <li> <a href="#">Sliders</a>
+              <ul>
+                <li><a href="index-flex.html">FlexSlider</a></li>
+                <li><a href="index-nivo.html">Nivo Slider</a></li>
+                <li><a href="index-coin.html">Coin Slider</a></li>
+                <li><a href="index-elasticslide.html">Elastic Slider</a></li>
+                <li><a href="index.html">Image Rotator</a></li>
+                <li><a href="index-slideshow.html">Simple Slideshow</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#">Pages</a>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="left-sidebar.html">Left Sidebar</a></li>
+            <li><a href="fullwidth.html">Fullwidth</a></li>
+            <li> <a href="#">Theme Elements</a>
+              <ul>
+                <li><a href="headings.html">Headings</a></li>
+                <li><a href="blockquotes.html">Blockquotes</a></li>
+                <li><a href="dropcaps.html">Dropcaps</a></li>
+                <li><a href="list-icons.html">List Icons</a></li>
+                <li><a href="buttons.html">CSS3 Buttons</a></li>
+                <li><a href="notification.html">Notifications</a></li>
+                <li><a href="tables.html">Tables</a></li>
+                <li><a href="tabs-accordion.html">Tabs &amp; Accordion</a></li>
+                <li><a href="columns.html">Columns</a></li>
+              </ul>
+            </li>
+            <li><a href="404-page.html">404 Page</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Gallery</a>
+          <ul>
+            <li><a href="gallery-1col.html">Gallery 1 Column</a></li>
+            <li><a href="gallery-2cols.html">Gallery 2 Columns</a></li>
+            <li><a href="gallery-3cols.html">Gallery 3 Columns</a></li>
+            <li><a href="gallery-carousel.html">Gallery Carousel</a></li>
+            <li><a href="gallery-montage.html">Gallery Montage</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Blog</a>
+          <ul>
+            <li><a href="blog-list.html">List Style</a></li>
+            <li><a href="blog-grid.html">Grid Style</a></li>
+            <li><a href="blog-list-alternate.html">Alternate Style</a></li>
+            <li><a href="single.html">Single Page</a></li>
+          </ul>
+          {% if errormiss  is defined  %}
+            </li>
+       <li><a href="#">Account</a>
+	  <ul>
+	  <li><a href="#"><strong>Sign In</strong></a></li>
+	  <li><a href="#"><strong>Sign Up</strong></a></li>
+	  <li><a href="#"><strong>Forgot Password</strong></a></li>
+	  </ul>
+	 </li>
+	 </li>
+          {%else%}
+       
+       <li><a href="#">{{'UserName'}}</a>
+	  <ul>
+	  <li><a href="#"><strong>Manage Account</strong></a></li>
+	  <li><a href="#"><strong>InBox</strong></a></li>
+	  <hr>
+	  <li><a href="#"><strong style="color:red;">Sign out</strong></a></li>
+	  </ul>
+	 </li>
+	 {% endif%}
+      </ul>
+    </nav>
+    <!-- end menu -->
+    <div class="clear"></div>
+  </div>
+  </div>
+  {% endblock %}
+  <!--SLIDER-->
+  <!--SITE CONTAINER-->
+    <div id="container">
+    {% block container %}
+    {% endblock %}
+    
+    {% block texttag %}
+  
+  <div id="footer-columns" class="clear">
+    <!--TAGS-->
+    <div class="tags">
+      <h5>Tag Cloud</h5>
+      <a href="#">bowling</a> <a href="#">wedding</a> <a href="#">landscape</a> <a href="#">underwater</a> <a href="#">species</a> <a href="#">wildlife</a> <a href="#">photography</a> <a href="#">mountains</a> <a href="#">underwater</a> <a href="#">species</a> <a href="#">wildlife</a> <a href="#">photography</a> <a href="#">mountains</a> <a href="#">Scenery</a> <a href="#">Wild Creatures</a> <a href="#">Magazine</a> <a href="#">Small</a> <a href="#">World</a> </div>
+    <!--ARCHIVES-->
+    <div class="archive">
+      <h5>Archives</h5>
+      <ul>
+        <li><a href="#">February 2012</a> (200)</li>
+        <li><a href="#">January 2012</a> (50)</li>
+        <li><a href="#">December 2011</a> (20)</li>
+        <li><a href="#">November 2011</a> (20)</li>
+        <li><a href="#">October 2011</a> (20)</li>
+        <li><a href="#">September 2011</a> (20)</li>
+      </ul>
+    </div>
+    <!--TWITTER FEED-->
+    <div class="tweet">
+      <h5>Twitter Feed</h5>
+      <div id="tweet1">&nbsp;</div>
+    </div>
+    <!--ABOUT-->
+    <div class="about-brief">
+      <h5>Text Widget</h5>
+      <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+    </div>
+  </div>
+  
+    {% endblock %}
+    
+ <!--FOOTER-->
+  <div id="footer">
+    <label>&copy; Copyright &copy; 2013.Company name All rights reserved.</label>
+  </div>
+</div>
+
+<p><a href="#" id="toTop">&uarr;</a></p>
+<script type="text/javascript" src="{{ asset('bundles/relaxstyleindex/js/custom.js')}}"></script>
+<script type="text/javascript" src="{{ asset('bundles/relaxstyleindex/js/jquery.validate.js')}}"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#cform").validate();
+	});
+</script>
+<!--FOR PREVIEW ONLY-->
+<script type="text/javascript" src="{{ asset('bundles/relaxstyleindex/settings/styleswitch.js')}}"></script>
+<div><span class="door"><img src="{{ asset('bundles/relaxstyleindex/settings/img/setting.png')}}" alt="" title="" /></span></div>
+<div class="options"> <span class="close"><img src="{{ asset('bundles/relaxstyleindex/settings/img/close.png')}}" alt="" title="" /></span>
+  <h4>Background Patterns</h4>
+  <ul>
+    <li><a href="#" id="styles" class="styleswitch" title="pt-1" style="background-image: url("{{ asset('bundles/relaxstyleindex/img/patterns/body-bg.jpg')}}");"></a></li>
+    <li><a href="#" id="styles2" class="styleswitch" title="pt-2" style="background-image: url("{{ asset('bundles/relaxstyleindex/img/patterns/1.png')}}");"></a></li>
+    <li><a href="#" id="styles3" class="styleswitch" title="pt-3" style="background-image: url("{{ asset('bundles/relaxstyleindex/img/patterns/2.png')}}");"></a></li>
+    <li><a href="#" id="styles4" class="styleswitch" title="pt-4" style="background-image: url("{{ asset('bundles/relaxstyleindex/img/patterns/3.png')}}");"></a></li>
+    <li><a href="#" id="styles5" class="styleswitch" title="pt-5" style="background-image: url("{{ asset('bundles/relaxstyleindex/img/patterns/4.png')}}");"></a></li>
+    <li><a href="#" id="styles6" class="styleswitch" title="pt-6" style="background-image: url("{{ asset('bundles/relaxstyleindex/img/patterns/5.png')}}");"></a></li>
+    <li><a href="#" id="styles7" class="styleswitch" title="pt-7" style="background-image: url("{{ asset('bundles/relaxstyleindex/img/patterns/6.png')}}");"></a></li>
+    <li><a href="#" id="styles8" class="styleswitch" title="pt-8" style="background-image: url("{{ asset('bundles/relaxstyleindex/img/patterns/7.png')}}");"></a></li>
+    <li><a href="#" id="styles9" class="styleswitch" title="pt-9" style="background-image: url("{{ asset('bundles/relaxstyleindex/img/patterns/8.png')}}");"></a></li>
+    <li><a href="#" id="styles10" class="styleswitch" title="pt-10" style="background-image: url("{{ asset('bundles/relaxstyleindex/img/patterns/9.png')}}");"></a></li>
+    <li><a href="#" id="styles11" class="styleswitch" title="pt-11" style="background-image: url("{{ asset('bundles/relaxstyleindex/img/patterns/10.png')}}");"></a></li>
+    <li><a href="#" id="styles12" class="styleswitch" title="pt-12" style="background-image: url("{{ asset('bundles/relaxstyleindex/img/patterns/11.png')}}");"></a></li>
+  </ul>
+</div>
+ 
+</body>
+</html>
+

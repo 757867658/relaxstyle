@@ -127,6 +127,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // _Index
+        if ($pathinfo === '/createuser') {
+            return array (  '_controller' => 'Relaxstyle\\IndexBundle\\Controller\\DefaultController::createuserAction',  '_route' => '_Index',);
+        }
+
         // homepage
         if ($pathinfo === '/app/example') {
             return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);

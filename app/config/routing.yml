@@ -1,6 +1,5 @@
-relaxstyle_index:
-    resource: "@RelaxstyleIndexBundle/Controller/"
-    type:     annotation
+_relaxstyle_index:
+    resource: "@RelaxstyleIndexBundle/Resources/config/routing.yml"
     prefix:   /
 
 app:
