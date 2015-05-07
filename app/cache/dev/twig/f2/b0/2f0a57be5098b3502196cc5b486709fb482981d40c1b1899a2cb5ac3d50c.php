@@ -40,21 +40,24 @@ class __TwigTemplate_f2b02f0a57be5098b3502196cc5b486709fb482981d40c1b1899a2cb5ac
   <div class=\"main-content\">
 <div class=\"form\" >
 <div style=\"margin: 50px auto;text-align:center;font-weight:bold;color: #EA9D76; font-family: 'OpenSansBold';font-size:xx-large;\">Create your Account</div>
-        <form id=\"cform\" action=\"#\" method=\"pot\"  style=\"width:350px;margin:0 auto;\">  
-                <input type=\"text\" class=\"required email\" id=\"email\"  name=\"loginemail\" placeholder=\"Email Address\" style=\"border:3px solid #171717 ; width:100%;border-radius:7px;font-size: 16px;\" >
+        <form id=\"cform\" name=\"ccfrom\" action=\"";
+        // line 7
+        echo $this->env->getExtension('routing')->getPath("_Index_createuser");
+        echo "\" method=\"post\"  onsubmit=\"return validateForm()\" style=\"width:350px;margin:0 auto;\">  
+                <input type=\"text\" class=\"required email\" id=\"email\"  name=\"loginemail\" placeholder=\"Email Address\" style=\"border: 3px solid #171717 ; width:100%;border-radius:7px;font-size: 16px;\" >
                 <br><br>
 \t\t<input type=\"text\" class=\"form-control\" id=\"username\" name=\"loginname\" placeholder=\"Username\" style=\"border:3px solid #171717 ; width:100%;border-radius:7px;font-size: 16px;\" >
 \t\t<br><br>
-\t\t<input type=\"radio\" name=\"options_sex\" id=\"optionsRadios1\" value=\"Male\"> Male
-\t\t<input type=\"radio\" name=\"options_sex\" id=\"optionsRadios2\" value=\"Female\"> Female
+\t\t<input type=\"radio\"  name=\"options_sex\" id=\"optionsRadios1\" value=\"Male\"> Male
+\t\t<input type=\"radio\"  name=\"options_sex\" id=\"optionsRadios2\" value=\"Female\"> Female
 \t\t<br><br>
-\t\t<input type=\"password\" class=\"form-control\" id=\"password\" name=\"loginpwd\" placeholder=\"Password\" style=\"border:3px solid #171717 ; width:100%;border-radius:7px;font-size: 16px;\" >
+\t\t<input type=\"password\" class=\"form-control\" id=\"password\" name=\"loginpwd\" maxlength=\"20\" placeholder=\"Password\" style=\" border:3px solid #171717 ; width:100%;border-radius:7px;font-size: 16px; \" >
 \t\t<br><br>
-\t\t<input type=\"password\" class=\"form-control\" id=\"password_confirm\" placeholder=\"Password Confirm\" style=\"border:3px solid #171717 ; width:100%;border-radius:7px;font-size: 16px;\" >
+\t\t<input type=\"password\" class=\"form-control\" id=\"password_confirm\" placeholder=\"Password Confirm\" style=\" border:3px solid #171717 ; width:100%;border-radius:7px;font-size: 16px;\" >
 \t\t<br><br>
-\t\t <input type=\"checkbox\" name=\"privacy\" value=\"I_agree\">I agree to the <a href=\"javascript:;\" data-toggle=\"modal\" data-target=\"#templatemo_modal\">Terms of Service</a> and <a href=\"#\">Privacy Policy.</a>
+\t\t <input type=\"checkbox\" id=\"privatcyy\" name=\"privacy\" value=\"I_agree\"><space id=\"agree\" >I agree to the</space> <a href=\"javascript:;\" data-toggle=\"modal\" data-target=\"#templatemo_modal\">Terms of Service</a> and <a href=\"#\">Privacy Policy.</a>
 \t\t <br><br>
-\t\t<input type=\"submit\" value=\"Create account\" class=\"btsubmit\" style=\"font-size: 20px; color: #EA9D76; font-family: 'OpenSansBold';\">\t
+\t\t<input type=\"submit\" value=\"Create account\" class=\"btsubmit\" id=\"crtuser\" style=\"font-size: 20px; color: #EA9D76; font-family: 'OpenSansBold';\">\t
         </form>
   </div></div>
   <div class=\"sidebar\">
@@ -100,7 +103,10 @@ class __TwigTemplate_f2b02f0a57be5098b3502196cc5b486709fb482981d40c1b1899a2cb5ac
          <div class=\"side-paragraph\">
         <h5>Alread  had  a account<span class=\"arrow\">&nbsp;</span></h5>
         <div>
-          <p><a href=\"#\" style=\"text-align:center;font-weight:bold;color: #EA9D76; font-family: 'OpenSansBold';font-size:20px;\">Sign in ➟ </a><p>
+          <p><a href=\"";
+        // line 46
+        echo $this->env->getExtension('routing')->getPath("_Index_signin");
+        echo "\" style=\"text-align:center;font-weight:bold;color: #EA9D76; font-family: 'OpenSansBold';font-size:20px;\">Sign in ➟ </a><p>
         </div>
         <span class=\"tail\">&nbsp;</span> </div>
    </div></div>
@@ -119,6 +125,6 @@ class __TwigTemplate_f2b02f0a57be5098b3502196cc5b486709fb482981d40c1b1899a2cb5ac
 
     public function getDebugInfo()
     {
-        return array (  95 => 39,  86 => 33,  82 => 32,  78 => 31,  74 => 30,  70 => 29,  66 => 28,  39 => 3,  36 => 2,  11 => 1,);
+        return array (  108 => 46,  98 => 39,  89 => 33,  85 => 32,  81 => 31,  77 => 30,  73 => 29,  69 => 28,  45 => 7,  39 => 3,  36 => 2,  11 => 1,);
     }
 }

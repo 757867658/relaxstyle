@@ -127,9 +127,29 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // _Index
+        // _Index_home
+        if ($pathinfo === '/home') {
+            return array (  '_controller' => 'Relaxstyle\\IndexBundle\\Controller\\DefaultController::homeAction',  '_route' => '_Index_home',);
+        }
+
+        // _Index_signin
+        if ($pathinfo === '/signin') {
+            return array (  '_controller' => 'Relaxstyle\\IndexBundle\\Controller\\DefaultController::signinAction',  '_route' => '_Index_signin',);
+        }
+
+        // _Index_createuser
         if ($pathinfo === '/createuser') {
-            return array (  '_controller' => 'Relaxstyle\\IndexBundle\\Controller\\DefaultController::createuserAction',  '_route' => '_Index',);
+            return array (  '_controller' => 'Relaxstyle\\IndexBundle\\Controller\\DefaultController::createuserAction',  '_route' => '_Index_createuser',);
+        }
+
+        // _Index_findpassword
+        if ($pathinfo === '/findpassword') {
+            return array (  '_controller' => 'Relaxstyle\\IndexBundle\\Controller\\DefaultController::findpasswordAction',  '_route' => '_Index_findpassword',);
+        }
+
+        // _Index_logout
+        if ($pathinfo === '/logout') {
+            return array (  '_controller' => 'Relaxstyle\\IndexBundle\\Controller\\DefaultController::logoutAction',  '_route' => '_Index_logout',);
         }
 
         // homepage

@@ -1,0 +1,41 @@
+<?php
+
+namespace Relaxstyle\IndexBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity(repositoryClass="AccountRepository")
+ * @ORM\Table(name="account")
+ */
+class Account
+{
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     *  @ORM\Column(type="string", length=100)
+     */
+    protected $accountemail;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $accountname;
+    
+     /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $accountpasswd;
+
+    /**
+     * @ORM\Column(type="string", columnDefinition="ENUM('Male', 'Female')")
+     */
+    protected $accountsex;
+
+    
+}
