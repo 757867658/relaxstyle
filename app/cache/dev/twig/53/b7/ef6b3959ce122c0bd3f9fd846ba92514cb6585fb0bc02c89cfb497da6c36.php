@@ -22,8 +22,11 @@ class __TwigTemplate_53b7ef6b3959ce122c0bd3f9fd846ba92514cb6585fb0bc02c89cfb497d
     {
         // line 1
         echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">
-<html xmlns=\"http://www.w3.org/1999/xhtml\">
-
+<html xmlns=\"http://www.w3.org/1999/xhtml\" >
+<!--manifest=\"";
+        // line 3
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/relaxstyleindex/settings/html.appcache"), "html", null, true);
+        echo "\"-->
 <head>
 <meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\" />
 <meta name=\"keywords\" content=\"Photography, Photo Images, Responsive, Business, Corporate, Gallery, Notebook\" />
@@ -41,7 +44,7 @@ class __TwigTemplate_53b7ef6b3959ce122c0bd3f9fd846ba92514cb6585fb0bc02c89cfb497d
 ";
         // line 20
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 51
+        // line 52
         echo "
 <title>This is an Awesome Responsive Website Template</title>
 </head>
@@ -49,7 +52,7 @@ class __TwigTemplate_53b7ef6b3959ce122c0bd3f9fd846ba92514cb6585fb0bc02c89cfb497d
   <!--HEADER-->
   
   ";
-        // line 57
+        // line 58
         $this->displayBlock('menu', $context, $blocks);
         // line 149
         echo "  <!--SLIDER-->
@@ -243,6 +246,10 @@ class __TwigTemplate_53b7ef6b3959ce122c0bd3f9fd846ba92514cb6585fb0bc02c89cfb497d
         // line 39
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/relaxstyleindex/js/jquery.tweet.js"), "html", null, true);
         echo "\"></script>
+<script type=\"text/javascript\" src=\"";
+        // line 40
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/relaxstyleindex/js/myjavascript.js"), "html", null, true);
+        echo "\"></script>
 <script type=\"text/javascript\">
 \tjQuery(function(\$){
 \t\t\$(\"#tweet\").tweet({
@@ -256,23 +263,26 @@ class __TwigTemplate_53b7ef6b3959ce122c0bd3f9fd846ba92514cb6585fb0bc02c89cfb497d
 ";
     }
 
-    // line 57
+    // line 58
     public function block_menu($context, array $blocks = array())
     {
-        // line 58
+        // line 59
         echo "  <div id=\"headera\">
   <div id=\"header\" class=\"clear\">
     <!--LOGO-->
     <div class=\"logo\">
       <h1><a href=\"index.html\"><img src=\"";
-        // line 62
+        // line 63
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/relaxstyleindex/img/logo.png"), "html", null, true);
         echo "\" alt=\"\" title=\"\" /></a></h1>
     </div>
     <!--MENU-->
     <nav>
       <ul class=\"sf-menu\">
-        <li class=\"active\"><a href=\"index.html\">Home</a>
+        <li class=\"active\"><a href=\"";
+        // line 68
+        echo $this->env->getExtension('routing')->getPath("_Index_home");
+        echo "\">Home</a>
           <ul>
             <li><a href=\"index-alternate.html\">Alternate Homepage 1</a></li>
             <li><a href=\"index-alternate-1.html\">Alternate Homepage 2</a></li>
@@ -327,32 +337,42 @@ class __TwigTemplate_53b7ef6b3959ce122c0bd3f9fd846ba92514cb6585fb0bc02c89cfb497d
             <li><a href=\"single.html\">Single Page</a></li>
           </ul>
           ";
-        // line 121
-        if (array_key_exists("errormiss", $context)) {
-            // line 122
-            echo "            </li>
-       <li><a href=\"#\">Account</a>
-\t  <ul>
-\t  <li><a href=\"#\"><strong>Sign In</strong></a></li>
-\t  <li><a href=\"#\"><strong>Sign Up</strong></a></li>
-\t  <li><a href=\"#\"><strong>Forgot Password</strong></a></li>
-\t  </ul>
-\t </li>
-\t </li>
+        // line 122
+        if (array_key_exists("UserName", $context)) {
+            // line 123
+            echo "           <li><a href=\"#\">";
+            echo twig_escape_filter($this->env, (isset($context["UserName"]) ? $context["UserName"] : $this->getContext($context, "UserName")), "html", null, true);
+            echo "</a>
+\t       <ul>
+\t          <li><a href=\"#\"><strong>Manage Account</strong></a></li>
+\t          <li><a href=\"#\"><strong>InBox</strong></a></li>
+\t  <hr>
+\t          <li><a href=\"";
+            // line 128
+            echo $this->env->getExtension('routing')->getPath("_Index_logout");
+            echo "\"><strong style=\"color:red;\">Sign out</strong></a></li>
+\t      </ul>
+\t    </li>
           ";
         } else {
             // line 132
-            echo "       
-       <li><a href=\"#\">";
-            // line 133
-            echo "UserName";
-            echo "</a>
+            echo "        </li>
+       <li><a href=\"#\">Account</a>
 \t  <ul>
-\t  <li><a href=\"#\"><strong>Manage Account</strong></a></li>
-\t  <li><a href=\"#\"><strong>InBox</strong></a></li>
-\t  <hr>
-\t  <li><a href=\"#\"><strong style=\"color:red;\">Sign out</strong></a></li>
+\t  <li><a href=\"";
+            // line 135
+            echo $this->env->getExtension('routing')->getPath("_Index_signin");
+            echo "\"><strong>Sign In</strong></a></li>
+\t  <li><a href=\"";
+            // line 136
+            echo $this->env->getExtension('routing')->getPath("_Index_createuser");
+            echo "\"><strong>Sign Up</strong></a></li>
+\t  <li><a href=\"";
+            // line 137
+            echo $this->env->getExtension('routing')->getPath("_Index_findpassword");
+            echo "\"><strong>Forgot Password</strong></a></li>
 \t  </ul>
+\t </li>
 \t </li>
 \t ";
         }
@@ -422,6 +442,6 @@ class __TwigTemplate_53b7ef6b3959ce122c0bd3f9fd846ba92514cb6585fb0bc02c89cfb497d
 
     public function getDebugInfo()
     {
-        return array (  380 => 156,  377 => 155,  373 => 153,  370 => 152,  360 => 142,  348 => 133,  345 => 132,  333 => 122,  331 => 121,  269 => 62,  263 => 58,  260 => 57,  244 => 39,  240 => 38,  236 => 37,  232 => 36,  223 => 30,  219 => 29,  215 => 28,  211 => 27,  207 => 26,  203 => 25,  199 => 24,  195 => 23,  191 => 22,  186 => 21,  183 => 20,  177 => 14,  173 => 13,  169 => 12,  164 => 11,  161 => 10,  149 => 219,  145 => 218,  141 => 217,  137 => 216,  133 => 215,  129 => 214,  125 => 213,  121 => 212,  117 => 211,  113 => 210,  109 => 209,  105 => 208,  99 => 205,  95 => 204,  91 => 203,  81 => 196,  77 => 195,  67 => 187,  65 => 155,  62 => 154,  60 => 152,  55 => 149,  53 => 57,  45 => 51,  43 => 20,  37 => 16,  35 => 10,  24 => 1,);
+        return array (  400 => 156,  397 => 155,  393 => 153,  390 => 152,  380 => 142,  372 => 137,  368 => 136,  364 => 135,  359 => 132,  352 => 128,  343 => 123,  341 => 122,  284 => 68,  276 => 63,  270 => 59,  267 => 58,  251 => 40,  247 => 39,  243 => 38,  239 => 37,  235 => 36,  226 => 30,  222 => 29,  218 => 28,  214 => 27,  210 => 26,  206 => 25,  202 => 24,  198 => 23,  194 => 22,  189 => 21,  186 => 20,  180 => 14,  176 => 13,  172 => 12,  167 => 11,  164 => 10,  152 => 219,  148 => 218,  144 => 217,  140 => 216,  136 => 215,  132 => 214,  128 => 213,  124 => 212,  120 => 211,  116 => 210,  112 => 209,  108 => 208,  102 => 205,  98 => 204,  94 => 203,  84 => 196,  80 => 195,  70 => 187,  68 => 155,  65 => 154,  63 => 152,  58 => 149,  56 => 58,  48 => 52,  46 => 20,  40 => 16,  38 => 10,  28 => 3,  24 => 1,);
     }
 }

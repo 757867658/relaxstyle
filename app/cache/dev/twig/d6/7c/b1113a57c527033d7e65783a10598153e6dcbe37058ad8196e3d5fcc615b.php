@@ -39,8 +39,8 @@ class __TwigTemplate_d67cb1113a57c527033d7e65783a10598153e6dcbe37058ad8196e3d5fc
         echo " <div id=\"contents\" class=\"clear\">
   <div class=\"main-content\">
 <div class=\"form\" >
-<div style=\"margin: 50px auto;text-align:center;font-weight:bold;color: #EA9D76; font-family: 'OpenSansBold';font-size:xx-large;\">Account Login</div>
-        <form id=\"cform\" action=\"#\" method=\"pot\"  style=\"width:350px;margin:0 auto;\">  
+<div style=\"margin: 50px auto;text-align:center;font-weight:bold;color: #EA9D76; font-family: 'OpenSansBold';font-size:xx-large;\">Account Signin</div>
+        <form id=\"cform\" action=\"#\" method=\"post\"  style=\"width:350px;margin:0 auto;\">  
               <input type=\"text\" name=\"email\" id=\"email\" placeholder=\"Email Address\" class=\"required email\" style=\"border:3px solid #171717 ; width:100%;border-radius:7px;font-size: 16px;\" />
               <br><br>
               <input type=\"password\" name=\"password\" id=\"password\" placeholder=\"password\" style=\"border:3px solid #171717 ; width:100%;border-radius:7px;font-size: 16px;\"/>
@@ -82,16 +82,34 @@ class __TwigTemplate_d67cb1113a57c527033d7e65783a10598153e6dcbe37058ad8196e3d5fc
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/relaxstyleindex/img/icons/flickr.png"), "html", null, true);
         echo "\" alt=\"\" title=\"Flickr\" /></a></li>
         </ul>
+        <h2 style=\"color: red; font-family: 'OpenSansBold';\"/>
+         ";
+        // line 32
+        if (array_key_exists("loginerror", $context)) {
+            // line 33
+            echo "         ";
+            echo twig_escape_filter($this->env, (isset($context["loginerror"]) ? $context["loginerror"] : $this->getContext($context, "loginerror")), "html", null, true);
+            echo "
+         ";
+        } else {
+            // line 35
+            echo "         ";
+        }
+        // line 36
+        echo "        </h2>
         <span class=\"tail\">&nbsp;</span> 
   </div>
   <div class=\"side-paragraph\">
         <h5>About  Signin <span class=\"arrow\">&nbsp;</span></h5>
         <div> <img src=\"";
-        // line 35
+        // line 41
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/relaxstyleindex/img/simage.jpg"), "html", null, true);
         echo "\" alt=\"\" title=\"\" />
           <p> IF you not have a Accout to Signin ,and if you want to join Relaxstyle .yes you can  </p>
-           <p><a href=\"#\" style=\"text-align:center;font-weight:bold;color: #EA9D76; font-family: 'OpenSansBold';font-size:20px;\">Create new account ➟ </a><p>
+           <p><a href=\"";
+        // line 43
+        echo $this->env->getExtension('routing')->getPath("_Index_createuser");
+        echo "\" style=\"text-align:center;font-weight:bold;color: #EA9D76; font-family: 'OpenSansBold';font-size:20px;\">Create new account ➟ </a><p>
            
         </div>
         <span class=\"tail\">&nbsp;</span> </div>
@@ -111,6 +129,6 @@ class __TwigTemplate_d67cb1113a57c527033d7e65783a10598153e6dcbe37058ad8196e3d5fc
 
     public function getDebugInfo()
     {
-        return array (  91 => 35,  82 => 29,  78 => 28,  74 => 27,  70 => 26,  66 => 25,  62 => 24,  39 => 3,  36 => 2,  11 => 1,);
+        return array (  111 => 43,  106 => 41,  99 => 36,  96 => 35,  90 => 33,  88 => 32,  82 => 29,  78 => 28,  74 => 27,  70 => 26,  66 => 25,  62 => 24,  39 => 3,  36 => 2,  11 => 1,);
     }
 }

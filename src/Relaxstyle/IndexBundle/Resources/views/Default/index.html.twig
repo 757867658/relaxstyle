@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<!--manifest="{{ asset('bundles/relaxstyleindex/settings/html.appcache')}}"-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta name="keywords" content="Photography, Photo Images, Responsive, Business, Corporate, Gallery, Notebook" />
@@ -37,6 +37,7 @@
 <script type="text/javascript" src="{{ asset('bundles/relaxstyleindex/js/css3-mediaqueries.js')}}"></script>
 <script type="text/javascript" src="{{ asset('bundles/relaxstyleindex/js/hover.js')}}"></script>
 <script type="text/javascript" src="{{ asset('bundles/relaxstyleindex/js/jquery.tweet.js')}}"></script>
+<script type="text/javascript" src="{{ asset('bundles/relaxstyleindex/js/myjavascript.js')}}"></script>
 <script type="text/javascript">
 	jQuery(function($){
 		$("#tweet").tweet({
@@ -64,7 +65,7 @@
     <!--MENU-->
     <nav>
       <ul class="sf-menu">
-        <li class="active"><a href="index.html">Home</a>
+        <li class="active"><a href="{{ path('_Index_home') }}">Home</a>
           <ul>
             <li><a href="index-alternate.html">Alternate Homepage 1</a></li>
             <li><a href="index-alternate-1.html">Alternate Homepage 2</a></li>
@@ -118,25 +119,24 @@
             <li><a href="blog-list-alternate.html">Alternate Style</a></li>
             <li><a href="single.html">Single Page</a></li>
           </ul>
-          {% if errormiss  is defined  %}
-            </li>
+          {% if UserName is defined  %}
+           <li><a href="#">{{UserName}}</a>
+	       <ul>
+	          <li><a href="#"><strong>Manage Account</strong></a></li>
+	          <li><a href="#"><strong>InBox</strong></a></li>
+	  <hr>
+	          <li><a href="{{ path('_Index_logout') }}"><strong style="color:red;">Sign out</strong></a></li>
+	      </ul>
+	    </li>
+          {%else%}
+        </li>
        <li><a href="#">Account</a>
 	  <ul>
-	  <li><a href="#"><strong>Sign In</strong></a></li>
-	  <li><a href="#"><strong>Sign Up</strong></a></li>
-	  <li><a href="#"><strong>Forgot Password</strong></a></li>
+	  <li><a href="{{ path('_Index_signin') }}"><strong>Sign In</strong></a></li>
+	  <li><a href="{{ path('_Index_createuser') }}"><strong>Sign Up</strong></a></li>
+	  <li><a href="{{ path('_Index_findpassword') }}"><strong>Forgot Password</strong></a></li>
 	  </ul>
 	 </li>
-	 </li>
-          {%else%}
-       
-       <li><a href="#">{{'UserName'}}</a>
-	  <ul>
-	  <li><a href="#"><strong>Manage Account</strong></a></li>
-	  <li><a href="#"><strong>InBox</strong></a></li>
-	  <hr>
-	  <li><a href="#"><strong style="color:red;">Sign out</strong></a></li>
-	  </ul>
 	 </li>
 	 {% endif%}
       </ul>

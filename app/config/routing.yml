@@ -5,3 +5,5 @@ _relaxstyle_index:
 app:
     resource: @AppBundle/Controller/
     type:     annotation
+
+    
