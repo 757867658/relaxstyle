@@ -25,9 +25,8 @@ public function usercheck($em)
     $session=$this->request->getsession();
    
     $searchsql=$em->getRepository('RelaxstyleIndexBundle:Account');
-    $account=$searchsql->findOneBy(array('accountemail'=>$this->loginemail ));
-    $accountpass=$account->getAccountpasswd();
-    if($accountpass==$this->loginpwd){
+    $account=$searchsql->findOneBy(array('accountemail'=>$this->loginemail,'accountpasswd'=> $this->loginpwd ));
+    if($account){
     $accountname=$account->getAccountname();
     $logina=new Sessionlist();
     $logina->setUsername($accountname);
@@ -36,7 +35,7 @@ public function usercheck($em)
      return $accountname;
     }
     else{
-    return array();
+    return false;
     }
     }
     

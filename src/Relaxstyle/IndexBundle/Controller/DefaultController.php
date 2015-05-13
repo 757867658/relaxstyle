@@ -10,6 +10,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Relaxstyle\IndexBundle\Modals\Sessionlist;
 use Relaxstyle\IndexBundle\Modals\Sessionget;
 use Relaxstyle\IndexBundle\Modals\Susercheck;
+use Relaxstyle\IndexBundle\Modals\Relaxmail;
+use Relaxstyle\IndexBundle\Modals\Idcomfirm;
+use Relaxstyle\IndexBundle\Entity\Signuplist;
 
 
 
@@ -61,27 +64,42 @@ class DefaultController extends Controller
     {
     $session=$this->getRequest()->getsession();
     $em=$this->getDoctrine()->getEntityManager();
-    $searchsql=$em->getRepository('RelaxstyleIndexBundle:Account');
+    $searchsql=$em->getRepository('RelaxstyleIndexBundle:Signuplist');
+    
+    /**session check*/
+    
+    $loginn=new Sessionget($request);
+    if ($loginn->getloginname()){
+    return $this->redirect($this->generateUrl('_Index_home'));
+    }
+    
+   /**end*/    
     
     if($request->getMethod() == 'POST'){
             $session->clear();
             $loginemail=$request->get('loginemail');
             $loginname=$request->get('loginname');
-            $loginpwd  =md5($request->get('loginpwd').'105');
+            $loginpwd  = md5(($request->get('loginpwd')).'105');
             $options_sex=$request->get('options_sex');
             $emailresult=$searchsql->findOneBy(array('accountemail'=>$loginemail));
             if ($emailresult){
             return $this->render('RelaxstyleIndexBundle:Default:findpassword.html.twig' ,array('comfirmemail'=>$loginemail ,'result'=>"Your email has been registered,you can signin or find you password ,also you can use another email signup."));
             }
             else{
-            $inputsql=new Account;
+            $my_t=gettimeofday(true);
+            $signupid = md5('m'.$loginemail.$my_t);
+            $inputsql=new Signuplist();
+            $inputsql->setSignupid($signupid);
             $inputsql->setAccountemail($loginemail);
             $inputsql->setAccountname($loginname);
             $inputsql->setAccountpasswd($loginpwd );
             $inputsql->setAccountsex($options_sex);
+            $inputsql->setStatus('1');
             $em->persist($inputsql);
             $em->flush();
-            return $this->render('RelaxstyleIndexBundle:Default:signin.html.twig');
+            $signupsend=new Relaxmail();
+            $signupsend->signupsend($this,$signupid,$loginemail);
+            return $this->render('RelaxstyleIndexBundle:Default:findpassword.html.twig' ,array('nofind'=>'The comfirm email alread send to your mailbox ,please comfirm it if you want active your account.' ));
             }
             }
        return array();
@@ -91,9 +109,25 @@ class DefaultController extends Controller
      * @Route("/findpassword" , name="_Index_findpassword")
      * @Template()
      */
-    public function findpasswordAction()
+    public function findpasswordAction(Request $request)
     {
-       return array();
+       if($request->getMethod() == 'POST'){
+       $loginemail=$request->get('email');
+       $mailsend=new Relaxmail();
+       $result=$mailsend->mailsend($this,$loginemail);
+       switch ($result)
+                {
+                  case 'a':
+                      return $this->render('RelaxstyleIndexBundle:Default:findpassword.html.twig' ,array('nofind'=>'Please check your email.and change your password' ));break;
+                  case 'b':
+                      return $this->render('RelaxstyleIndexBundle:Default:findpassword.html.twig' ,array('nofind'=>'You already sended a comirm email,please check your mailbox' ));break;
+                  case 'c':
+                      return $this->render('RelaxstyleIndexBundle:Default:findpassword.html.twig' ,array('nofind'=>'Your Account Have not Signup' ));break;
+                  default:
+                      return array();
+                }
+         }
+      return array();
     }
     
     
@@ -107,4 +141,59 @@ class DefaultController extends Controller
        $session->clear();
        return $this->redirect($this->generateUrl('_Index_signin'));
     }
+    
+    
+     /**
+     * @Route("/changepassword/{id}" )
+     * @Template()
+     */
+     public function changepasswordAction($id,Request $request)
+    {
+       $idcomfirm=new Idcomfirm();
+       $resultid=$idcomfirm->changepasswordid($this,$id);
+       switch($resultid)
+                {
+                  case 'b':
+                      return $this->render('RelaxstyleIndexBundle:Default:findpassword.html.twig' ,array('nofind'=>'This page already expire' ));break;
+                  case 'c':
+                      return $this->render('RelaxstyleIndexBundle:Default:findpassword.html.twig' ,array('nofind'=>'A black page' ));break;
+                  default:
+                         break;
+                }
+       if($request->getMethod() == 'POST'){
+       $newpassword=$request->get('newpassword');
+       $mailsend=new Relaxmail();
+       $result=$mailsend->changepassword($this,$id,$newpassword);
+       if($result){
+       return $this->render('RelaxstyleIndexBundle:Default:findpassword.html.twig' ,array('nofind'=>'Change Password Success' ));
+       }
+       }
+       return array('id'=>$id);
+       }
+           
+     /**
+     * @Route("/signupko/{id}" )
+     * @Template()
+     */
+     public function signupkoAction($id)
+    {
+       $idcomfirm=new Idcomfirm();
+       $resultid=$idcomfirm->signupok($this,$id);
+       switch($resultid)
+                {
+                  case 'b':
+                      return $this->render('RelaxstyleIndexBundle:Default:findpassword.html.twig' ,array('nofind'=>'This page already expire' ));break;
+                  case 'c':
+                      return $this->render('RelaxstyleIndexBundle:Default:findpassword.html.twig' ,array('nofind'=>'A black page' ));break;
+                  default:
+                      $signinto=new Relaxmail();   
+                      $result=$signinto->signinto($this,$id);
+                      if($result){
+                           return $this->render('RelaxstyleIndexBundle:Default:findpassword.html.twig' ,array('nofind'=>'Comfirm Success,please Sign in enjoy your Relaxstyle' ));
+                      }
+                      break;
+                }
+      
+       }     
+                
 }

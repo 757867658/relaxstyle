@@ -152,6 +152,16 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Relaxstyle\\IndexBundle\\Controller\\DefaultController::logoutAction',  '_route' => '_Index_logout',);
         }
 
+        // relaxstyle_index_default_changepassword
+        if (0 === strpos($pathinfo, '/changepassword') && preg_match('#^/changepassword/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'relaxstyle_index_default_changepassword')), array (  '_controller' => 'Relaxstyle\\IndexBundle\\Controller\\DefaultController::changepasswordAction',));
+        }
+
+        // relaxstyle_index_default_signupko
+        if (0 === strpos($pathinfo, '/signupko') && preg_match('#^/signupko/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'relaxstyle_index_default_signupko')), array (  '_controller' => 'Relaxstyle\\IndexBundle\\Controller\\DefaultController::signupkoAction',));
+        }
+
         // homepage
         if ($pathinfo === '/app/example') {
             return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);

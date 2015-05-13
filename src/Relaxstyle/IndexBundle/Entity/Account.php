@@ -28,7 +28,7 @@ class Account
     protected $accountname;
     
      /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="string", length=50)
      */
     protected $accountpasswd;
 

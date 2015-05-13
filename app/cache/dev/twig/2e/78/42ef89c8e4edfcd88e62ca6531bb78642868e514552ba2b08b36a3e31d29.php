@@ -39,18 +39,31 @@ class __TwigTemplate_2e7842ef89c8e4edfcd88e62ca6531bb78642868e514552ba2b08b36a3e
         echo "   <div id=\"contents\" class=\"clear\">
   <div class=\"main-content\">
 <div class=\"form\" >
-<div style=\"margin: 50px auto;text-align:center;font-weight:bold;color: #EA9D76; font-family: 'OpenSansBold';font-size:xx-large;\">Forgot password</div>
-        <form id=\"cform\" action=\"#\" method=\"post\"  style=\"width:450px;margin:0 auto;\">  
+";
+        // line 6
+        if (array_key_exists("nofind", $context)) {
+            // line 7
+            echo "  <div style=\"margin: 50px auto;text-align:center;font-weight:bold;color: #EA9D76; font-family: 'OpenSansBold';font-size:xx-large;\">";
+            echo twig_escape_filter($this->env, (isset($context["nofind"]) ? $context["nofind"] : $this->getContext($context, "nofind")), "html", null, true);
+            echo "</div></div>
+";
+        } else {
+            // line 9
+            echo "<div style=\"margin: 50px auto;text-align:center;font-weight:bold;color: #EA9D76; font-family: 'OpenSansBold';font-size:xx-large;\">Forgot password</div>
+        <form id=\"cform\" action=\"";
+            // line 10
+            echo $this->env->getExtension('routing')->getPath("_Index_findpassword");
+            echo "\" method=\"post\"  style=\"width:450px;margin:0 auto;\">  
        <ul class=\"clear\">
        <li>
               <label class=\"la\" for=\"email\"  style=\"text-align:center;font-weight:bold;color: #EA9D76; font-family: 'OpenSansBold';font-size:20px\">Email</label>
               <input type=\"text\" name=\"email\" id=\"email\" class=\"required email \"  style=\"width:300px\" value=
                \"";
-        // line 12
-        if (array_key_exists("errormiss", $context)) {
-            echo twig_escape_filter($this->env, (isset($context["comfirmemail"]) ? $context["comfirmemail"] : $this->getContext($context, "comfirmemail")), "html", null, true);
-        }
-        echo "\"
+            // line 15
+            if (array_key_exists("errormiss", $context)) {
+                echo twig_escape_filter($this->env, (isset($context["comfirmemail"]) ? $context["comfirmemail"] : $this->getContext($context, "comfirmemail")), "html", null, true);
+            }
+            echo "\"
               />
         </li>
         </ul>
@@ -58,28 +71,32 @@ class __TwigTemplate_2e7842ef89c8e4edfcd88e62ca6531bb78642868e514552ba2b08b36a3e
               <input class=\"btsubmit\" type=\"submit\" name=\"btsend\" value=\"Submit\"  style=\"font-size: 20px; color: #EA9D76; font-family: 'OpenSansBold';\"/>
               <br> <a href=\"#\" style=\"text-align:right;float: right;\">Sign In</a>
         </form>
-  </div></div>
+  </div>
+  ";
+        }
+        // line 25
+        echo "  </div>
   <div class=\"sidebar\">
   <div class=\"side-paragraph\">
         <h5>About  Forgotpassword<span class=\"arrow\">&nbsp;</span></h5>
         <div> <img src=\"";
-        // line 24
+        // line 29
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/relaxstyleindex/img/simage.jpg"), "html", null, true);
         echo "\" alt=\"\" title=\"\" />
           <p> When you Forgot your password .you can input send a comfirm email to your login email .</p>
           ";
-        // line 26
+        // line 31
         if (array_key_exists("errormiss", $context)) {
-            // line 27
+            // line 32
             echo "          <p><strong style=\"color:red\">";
             echo twig_escape_filter($this->env, (isset($context["result"]) ? $context["result"] : $this->getContext($context, "result")), "html", null, true);
             echo "</strong><p>
           ";
         }
-        // line 29
+        // line 34
         echo "          <p>or you can use another email address <p>
            <p><a href=\"";
-        // line 30
+        // line 35
         echo $this->env->getExtension('routing')->getPath("_Index_createuser");
         echo "\" style=\"text-align:center;font-weight:bold;color: #EA9D76; font-family: 'OpenSansBold';\">Create new account ➟ </a><p>
            
@@ -101,6 +118,6 @@ class __TwigTemplate_2e7842ef89c8e4edfcd88e62ca6531bb78642868e514552ba2b08b36a3e
 
     public function getDebugInfo()
     {
-        return array (  83 => 30,  80 => 29,  74 => 27,  72 => 26,  67 => 24,  50 => 12,  39 => 3,  36 => 2,  11 => 1,);
+        return array (  100 => 35,  97 => 34,  91 => 32,  89 => 31,  84 => 29,  78 => 25,  63 => 15,  55 => 10,  52 => 9,  46 => 7,  44 => 6,  39 => 3,  36 => 2,  11 => 1,);
     }
 }
