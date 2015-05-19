@@ -55,17 +55,18 @@ class DefaultController extends Controller
     }
     return array();
     }
+     
     
       /**
      * @Route("/createuser" , name="_Index_createuser")
      * @Template()
      */
-    public function createuserAction(Request $request)
+    public function createuser1Action(Request $request)
     {
     $session=$this->getRequest()->getsession();
     $em=$this->getDoctrine()->getEntityManager();
-    $searchsql=$em->getRepository('RelaxstyleIndexBundle:Signuplist');
-    
+    $searchsql=$em->getRepository('RelaxstyleIndexBundle:Account');
+    $signsql=$em->getRepository('RelaxstyleIndexBundle:Signuplist');
     /**session check*/
     
     $loginn=new Sessionget($request);
@@ -83,9 +84,11 @@ class DefaultController extends Controller
             $options_sex=$request->get('options_sex');
             $emailresult=$searchsql->findOneBy(array('accountemail'=>$loginemail));
             if ($emailresult){
-            return $this->render('RelaxstyleIndexBundle:Default:findpassword.html.twig' ,array('comfirmemail'=>$loginemail ,'result'=>"Your email has been registered,you can signin or find you password ,also you can use another email signup."));
+            return $this->render('RelaxstyleIndexBundle:Default:findpassword.html.twig' ,array('comfirmemail'=>$loginemail ,'nofind'=>"This email has been registered,you can signin or find you password ,also you can use another email signup."));
             }
             else{
+            $signresult=$signsql->findOneBy(array('accountemail'=>$loginemail));
+            if(!$signresult){
             $my_t=gettimeofday(true);
             $signupid = md5('m'.$loginemail.$my_t);
             $inputsql=new Signuplist();
@@ -99,10 +102,14 @@ class DefaultController extends Controller
             $em->flush();
             $signupsend=new Relaxmail();
             $signupsend->signupsend($this,$signupid,$loginemail);
-            return $this->render('RelaxstyleIndexBundle:Default:findpassword.html.twig' ,array('nofind'=>'The comfirm email alread send to your mailbox ,please comfirm it if you want active your account.' ));
+            return $this->render('RelaxstyleIndexBundle:Default:warning.html.twig' ,array('nofind'=>'The comfirm email alread send to your mailbox ,please comfirm it if you want active your account.' ));
+            }
+            else{
+            return $this->render('RelaxstyleIndexBundle:Default:warning.html.twig' ,array('nofind'=>'You already sended a comirm email,please check your mailbox.' ));
             }
             }
        return array();
+     }
      }
     
      /**
@@ -118,11 +125,11 @@ class DefaultController extends Controller
        switch ($result)
                 {
                   case 'a':
-                      return $this->render('RelaxstyleIndexBundle:Default:findpassword.html.twig' ,array('nofind'=>'Please check your email.and change your password' ));break;
+                      return $this->render('RelaxstyleIndexBundle:Default:warning.html.twig' ,array('nofind'=>'Please check your email.and change your password' ));break;
                   case 'b':
-                      return $this->render('RelaxstyleIndexBundle:Default:findpassword.html.twig' ,array('nofind'=>'You already sended a comirm email,please check your mailbox' ));break;
+                      return $this->render('RelaxstyleIndexBundle:Default:warning.html.twig' ,array('nofind'=>'You already sended a comirm email,please check your mailbox' ));break;
                   case 'c':
-                      return $this->render('RelaxstyleIndexBundle:Default:findpassword.html.twig' ,array('nofind'=>'Your Account Have not Signup' ));break;
+                      return $this->render('RelaxstyleIndexBundle:Default:warning.html.twig' ,array('nofind'=>'This account have not to be Signup' ));break;
                   default:
                       return array();
                 }
@@ -154,9 +161,9 @@ class DefaultController extends Controller
        switch($resultid)
                 {
                   case 'b':
-                      return $this->render('RelaxstyleIndexBundle:Default:findpassword.html.twig' ,array('nofind'=>'This page already expire' ));break;
+                      return $this->render('RelaxstyleIndexBundle:Default:warning.html.twig' ,array('nofind'=>'This page already expire' ));break;
                   case 'c':
-                      return $this->render('RelaxstyleIndexBundle:Default:findpassword.html.twig' ,array('nofind'=>'A black page' ));break;
+                      return $this->render('RelaxstyleIndexBundle:Default:warning.html.twig' ,array('nofind'=>'A black page' ));break;
                   default:
                          break;
                 }
@@ -165,7 +172,7 @@ class DefaultController extends Controller
        $mailsend=new Relaxmail();
        $result=$mailsend->changepassword($this,$id,$newpassword);
        if($result){
-       return $this->render('RelaxstyleIndexBundle:Default:findpassword.html.twig' ,array('nofind'=>'Change Password Success' ));
+       return $this->render('RelaxstyleIndexBundle:Default:warning.html.twig' ,array('nofind'=>'Change Password Success' ));
        }
        }
        return array('id'=>$id);
@@ -174,7 +181,7 @@ class DefaultController extends Controller
      /**
      * @Route("/signupko/{id}" )
      * @Template()
-     */
+     */  
      public function signupkoAction($id)
     {
        $idcomfirm=new Idcomfirm();
@@ -182,18 +189,18 @@ class DefaultController extends Controller
        switch($resultid)
                 {
                   case 'b':
-                      return $this->render('RelaxstyleIndexBundle:Default:findpassword.html.twig' ,array('nofind'=>'This page already expire' ));break;
+                      return $this->render('RelaxstyleIndexBundle:Default:warning.html.twig' ,array('nofind'=>'This page already expire' ));break;
                   case 'c':
-                      return $this->render('RelaxstyleIndexBundle:Default:findpassword.html.twig' ,array('nofind'=>'A black page' ));break;
+                      return $this->render('RelaxstyleIndexBundle:Default:warning.html.twig' ,array('nofind'=>'A black page' ));break;
                   default:
                       $signinto=new Relaxmail();   
                       $result=$signinto->signinto($this,$id);
                       if($result){
-                           return $this->render('RelaxstyleIndexBundle:Default:findpassword.html.twig' ,array('nofind'=>'Comfirm Success,please Sign in enjoy your Relaxstyle' ));
+                           return $this->render('RelaxstyleIndexBundle:Default:warning.html.twig' ,array('nofind'=>'Comfirm Success,please Sign in enjoy your Relaxstyle' ));
                       }
                       break;
                 }
       
-       }     
+      }     
                 
 }

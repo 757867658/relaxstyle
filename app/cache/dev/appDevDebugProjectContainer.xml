@@ -18,6 +18,7 @@
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="AppBundle">AppBundle\AppBundle</parameter>
       <parameter key="RelaxstyleIndexBundle">Relaxstyle\IndexBundle\RelaxstyleIndexBundle</parameter>
+      <parameter key="RelaxstyleBlogBundle">Relaxstyle\BlogBundle\RelaxstyleBlogBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="AcmeDemoBundle">Acme\DemoBundle\AcmeDemoBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
@@ -2995,6 +2996,10 @@
       <call method="addPath">
         <argument>/home/dirk/workspace/relaxstyle/src/Relaxstyle/IndexBundle/Resources/views</argument>
         <argument>RelaxstyleIndex</argument>
+      </call>
+      <call method="addPath">
+        <argument>/home/dirk/workspace/relaxstyle/src/Relaxstyle/BlogBundle/Resources/views</argument>
+        <argument>RelaxstyleBlog</argument>
       </call>
       <call method="addPath">
         <argument>/home/dirk/workspace/relaxstyle/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>

@@ -18,6 +18,7 @@ class __TwigTemplate_2e7842ef89c8e4edfcd88e62ca6531bb78642868e514552ba2b08b36a3e
         }
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'container' => array($this, 'block_container'),
         );
     }
@@ -33,77 +34,94 @@ class __TwigTemplate_2e7842ef89c8e4edfcd88e62ca6531bb78642868e514552ba2b08b36a3e
     }
 
     // line 2
-    public function block_container($context, array $blocks = array())
+    public function block_title($context, array $blocks = array())
     {
         // line 3
-        echo "   <div id=\"contents\" class=\"clear\">
-  <div class=\"main-content\">
-<div class=\"form\" >
+        echo "Forgot password
 ";
-        // line 6
+    }
+
+    // line 6
+    public function block_container($context, array $blocks = array())
+    {
+        // line 7
+        echo "<div class=\"col-md-6 col-md-offset-3\">
+<div class=\"panel panel-default panel-primary\" id='logpanel'>
+   <div class=\"panel-heading\">
+      <h3 class=\"panel-title\">
+         Forgot password
+      </h3>
+   </div>
+   <div class=\"panel-body\">
+   
+          ";
+        // line 16
         if (array_key_exists("nofind", $context)) {
-            // line 7
-            echo "  <div style=\"margin: 50px auto;text-align:center;font-weight:bold;color: #EA9D76; font-family: 'OpenSansBold';font-size:xx-large;\">";
+            // line 17
+            echo "           <div class=\"alert alert-warning\" id=\"alert\">
+           <a href=\"#\" class=\"close\" data-dismiss=\"alert\">
+           &times;
+           </a>
+           <strong>Warning!</strong><br>";
+            // line 21
             echo twig_escape_filter($this->env, (isset($context["nofind"]) ? $context["nofind"] : $this->getContext($context, "nofind")), "html", null, true);
-            echo "</div></div>
-";
+            echo "!
+           </div>
+          ";
         } else {
-            // line 9
-            echo "<div style=\"margin: 50px auto;text-align:center;font-weight:bold;color: #EA9D76; font-family: 'OpenSansBold';font-size:xx-large;\">Forgot password</div>
-        <form id=\"cform\" action=\"";
-            // line 10
-            echo $this->env->getExtension('routing')->getPath("_Index_findpassword");
-            echo "\" method=\"post\"  style=\"width:450px;margin:0 auto;\">  
-       <ul class=\"clear\">
-       <li>
-              <label class=\"la\" for=\"email\"  style=\"text-align:center;font-weight:bold;color: #EA9D76; font-family: 'OpenSansBold';font-size:20px\">Email</label>
-              <input type=\"text\" name=\"email\" id=\"email\" class=\"required email \"  style=\"width:300px\" value=
-               \"";
-            // line 15
-            if (array_key_exists("errormiss", $context)) {
-                echo twig_escape_filter($this->env, (isset($context["comfirmemail"]) ? $context["comfirmemail"] : $this->getContext($context, "comfirmemail")), "html", null, true);
-            }
-            echo "\"
-              />
-        </li>
-        </ul>
-              <br>
-              <input class=\"btsubmit\" type=\"submit\" name=\"btsend\" value=\"Submit\"  style=\"font-size: 20px; color: #EA9D76; font-family: 'OpenSansBold';\"/>
-              <br> <a href=\"#\" style=\"text-align:right;float: right;\">Sign In</a>
-        </form>
-  </div>
-  ";
+            // line 24
+            echo "          ";
         }
         // line 25
-        echo "  </div>
-  <div class=\"sidebar\">
-  <div class=\"side-paragraph\">
-        <h5>About  Forgotpassword<span class=\"arrow\">&nbsp;</span></h5>
-        <div> <img src=\"";
-        // line 29
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/relaxstyleindex/img/simage.jpg"), "html", null, true);
-        echo "\" alt=\"\" title=\"\" />
-          <p> When you Forgot your password .you can input send a comfirm email to your login email .</p>
-          ";
+        echo "  
+   <br><br>
+     <div class=\"col-md-8 col-md-offset-2\">
+      <form class=\"bs-example bs-example-form\" name='findform' role=\"form\" method=\"post\" action=\"";
+        // line 28
+        echo $this->env->getExtension('routing')->getPath("_Index_findpassword");
+        echo "\">
+      <div class=\"input-group input-group\">
+         <span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-user\"></span></span>
+         <input type=\"text\" class=\"form-control\" name='email' id='email' placeholder=\"Email Address\" value=\"";
         // line 31
-        if (array_key_exists("errormiss", $context)) {
-            // line 32
-            echo "          <p><strong style=\"color:red\">";
-            echo twig_escape_filter($this->env, (isset($context["result"]) ? $context["result"] : $this->getContext($context, "result")), "html", null, true);
-            echo "</strong><p>
-          ";
+        if (array_key_exists("comfirmemail", $context)) {
+            echo twig_escape_filter($this->env, (isset($context["comfirmemail"]) ? $context["comfirmemail"] : $this->getContext($context, "comfirmemail")), "html", null, true);
         }
-        // line 34
-        echo "          <p>or you can use another email address <p>
-           <p><a href=\"";
-        // line 35
+        echo "\">
+      </div><br>
+         <button type=\"submit\" class=\"btn btn-success\">Submit</button>
+      <br>
+   </form>
+   <hr>
+   </div>
+   </div>
+</div></div>
+<div class=\"col-md-3\">
+<div class=\"panel panel-success panel-primary\" id='logpanel'>
+   <div class=\"panel-heading\">
+      <h3 class=\"panel-title\">
+         About Findpassword
+      </h3>
+   </div>
+   <div class=\"panel-body\">
+   <h4><span class=\"glyphicon glyphicon-search text-success\"></span>
+   When you Forgot your password .you can input send a comfirm email to your login email .
+    or you can use another email address</h4>
+    <hr>
+    <div class=\"btn-group\">
+    <big><span class=\"glyphicon glyphicon-hand-right text-success\">  </span></big>
+    <a href=\"";
+        // line 54
+        echo $this->env->getExtension('routing')->getPath("_Index_signin");
+        echo "\"><button type=\"button\" class=\"btn btn-success btn-sm\" >Sign In</button></a>
+    <a href=\"";
+        // line 55
         echo $this->env->getExtension('routing')->getPath("_Index_createuser");
-        echo "\" style=\"text-align:center;font-weight:bold;color: #EA9D76; font-family: 'OpenSansBold';\">Create new account ➟ </a><p>
-           
-        </div>
-        <span class=\"tail\">&nbsp;</span> </div>
-   </div></div>
-  ";
+        echo "\"><button type=\"button\" class=\"btn btn-success btn-sm\">Sign Up</button></a>
+    </div>
+   </div>
+</div></div>
+";
     }
 
     public function getTemplateName()
@@ -118,6 +136,6 @@ class __TwigTemplate_2e7842ef89c8e4edfcd88e62ca6531bb78642868e514552ba2b08b36a3e
 
     public function getDebugInfo()
     {
-        return array (  100 => 35,  97 => 34,  91 => 32,  89 => 31,  84 => 29,  78 => 25,  63 => 15,  55 => 10,  52 => 9,  46 => 7,  44 => 6,  39 => 3,  36 => 2,  11 => 1,);
+        return array (  119 => 55,  115 => 54,  87 => 31,  81 => 28,  76 => 25,  73 => 24,  67 => 21,  61 => 17,  59 => 16,  48 => 7,  45 => 6,  40 => 3,  37 => 2,  11 => 1,);
     }
 }

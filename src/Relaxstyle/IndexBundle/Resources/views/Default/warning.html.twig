@@ -1,0 +1,43 @@
+ {%extends "RelaxstyleIndexBundle:Default:index.html.twig"%}
+{% block title %}
+Warning
+{% endblock %}
+
+{% block container %}
+<div class="col-md-6 col-md-offset-3">
+<div class="panel panel-default panel-primary" id='logpanel'>
+   <div class="panel-heading">
+      <h3 class="panel-title">
+         Warning
+      </h3>
+   </div>
+   <div class="panel-body">
+          {% if nofind is defined  %}
+          <h3 class="text-success"><strong>{{nofind}}</strong></h3>
+          {%else%}
+          
+          {% endif %}
+   </div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="panel panel-success panel-primary" id='logpanel'>
+   <div class="panel-heading">
+      <h3 class="panel-title">
+         About Relaxstyle
+      </h3>
+   </div>
+   <div class="panel-body">
+   <h4><span class="glyphicon glyphicon-search text-success"></span>
+   When you Forgot your password .you can input send a comfirm email to your login email .
+    or you can use another email address</h4>
+    <hr>
+    <div class="btn-group">
+    <big><span class="glyphicon glyphicon-hand-right text-success">  </span></big>
+    <a href="{{ path('_Index_signin') }}"><button type="button" class="btn btn-success btn-sm" >Sign In</button></a>
+    <a href="{{ path('_Index_createuser') }}"><button type="button" class="btn btn-success btn-sm">Sign Up</button></a>
+    <a href="{{ path('_Index_findpassword') }}"><button type="button" class="btn btn-success btn-sm">Forgot</button></a>
+    </div>
+   </div>
+</div></div>
+{% endblock %}

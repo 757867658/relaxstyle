@@ -1,3 +1,7 @@
+relaxstyle_blog:
+    resource: "@RelaxstyleBlogBundle/Resources/config/routing.yml"
+    prefix:   /
+
 _relaxstyle_index:
     resource: "@RelaxstyleIndexBundle/Resources/config/routing.yml"
     prefix:   /

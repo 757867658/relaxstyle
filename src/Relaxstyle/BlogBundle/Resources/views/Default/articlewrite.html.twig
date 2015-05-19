@@ -1,0 +1,86 @@
+{%extends "RelaxstyleBlogBundle:Default:index.html.twig"%} 
+{% block title %}
+Alticle write
+{% endblock %}
+
+{% block stylesheets %}
+<link href="{{ asset('bundles/relaxstyleblog/bootstrap/css/abootstrap.min.css')}}" rel="stylesheet"  media="screen" />
+<link href="{{ asset('bundles/relaxstyleblog/bootstrap/css/font-awesome.min.css')}}" rel="stylesheet"  />
+<link href="{{ asset('bundles/relaxstyleblog/bootstrap/css/summernote.css')}}" rel="stylesheet"  />
+<link href="{{ asset('bundles/relaxstyleblog/bootstrap/my.css')}}" rel="stylesheet"  />
+{% endblock %}
+
+{% block javascripts %}
+<script type="text/javascript" src="{{ asset('bundles/relaxstyleblog/bootstrap/js/jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{ asset('bundles/relaxstyleblog/bootstrap/js/jquery-1.9.1.min.js')}}"></script>
+<script type="text/javascript" src="{{ asset('bundles/relaxstyleblog/bootstrap/js/abootstrap.min.js')}}"></script>
+<script type="text/javascript" src="{{ asset('bundles/relaxstyleblog/bootstrap/js/summernote.js')}}"></script>
+<script type="text/javascript" src="{{ asset('bundles/relaxstyleblog/bootstrap/my.js')}}"></script>
+{% endblock %}
+
+
+
+
+{% block container %}
+  <div>
+    <h2>
+      <span class="label label-primary">Write Alticle</span>
+      <a href="#" class="pull-right"><small><span class="label label-primary">Alticlelist</span></small></a>
+      <a href="#" class="pull-right"><small><span class="label label-primary">Draft</span></small></a>
+    </h2>
+    <hr></hr>
+ </div>
+ <div><input type="text" class="form-control" name='Altitle' id='Altitle' placeholder="Alticle title" ></div>
+ <br>
+ <div id="summernote"></div>
+ <div>
+<div class="btn-group">
+  <button type="button" class="btn btn-info">Preview</button>
+  <div class="btn-group">
+    <button type="button" class="btn btn-primary dropdown-toggle" 
+      data-toggle="dropdown">
+      Alticlegroup
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a href="#">AAAA</a></li>
+      <li><a href="#">BBBB</a></li>
+      <li class="divider"></li>
+      <li><a href="#">CreateGroup</a></li>
+    </ul>
+  </div>
+  <div class="btn-group">
+    <button type="button" class="btn btn-primary dropdown-toggle" 
+      data-toggle="dropdown">
+      Friends
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a href="#">AAAAA</a></li>
+      <li><a href="#">BBBBB</a></li>
+      <li class="divider"></li>
+      <li><a href="#">CreateGroup</a><li>
+    </ul>
+  </div>
+  </div>
+<div class="btn-group pull-right">
+    <button type="button" class="btn btn-primary dropdown-toggle" 
+      data-toggle="dropdown">
+      More
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a href="#">AAAAA</a></li>
+      <li><a href="#">BBBBB</a></li>
+      <li class="divider"></li>
+      <li><a href="#">CreateGroup</a><li>
+    </ul>
+  </div>  
+ </div>
+ <hr></hr>
+ <div>
+ <button type="button" class="btn btn-success">Post</button>
+ <button type="button" class="btn btn-default btn-sm">Cancel</button>
+ <button type="button" class="btn btn-default btn-sm pull-right">Save</button>
+ </div>
+{% endblock %}

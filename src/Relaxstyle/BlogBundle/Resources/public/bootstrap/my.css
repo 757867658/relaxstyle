@@ -1,0 +1,29 @@
+#homecontainer{
+     position:relative;
+     top:60px;
+}
+li:hover{
+     background-color:#428bca;
+}
+ul li a:hover{
+     background-color:#428bca !important;
+}
+.note-editable{
+     min-height:600px !important;
+     overflow:auto;
+}
+.note-toolbar{
+    position:relative;
+}
+#logpanel{
+    margin: 60px 0px;
+}
+#alert{
+    z-index:10;
+    position:absolute;
+    width:520px;
+}
+#Altitle{
+    text-align:center;
+    font-size:150%;
+}

@@ -18,6 +18,7 @@ class __TwigTemplate_95aaadd698422be953f8732f4b88d71ae220aa59361593bffcc93678d3d
         }
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'container' => array($this, 'block_container'),
         );
     }
@@ -33,54 +34,47 @@ class __TwigTemplate_95aaadd698422be953f8732f4b88d71ae220aa59361593bffcc93678d3d
     }
 
     // line 2
-    public function block_container($context, array $blocks = array())
+    public function block_title($context, array $blocks = array())
     {
         // line 3
-        echo "   <div id=\"contents\" class=\"clear\">
-  <div class=\"main-content\">
-<div class=\"form\" >
-<div style=\"margin: 50px auto;text-align:center;font-weight:bold;color: #EA9D76; font-family: 'OpenSansBold';font-size:xx-large;\">Change Password</div>
-        <form id=\"cform\" action=\"http://127.0.0.1:8000/changepassword/";
+        echo "Change Password
+";
+    }
+
+    // line 6
+    public function block_container($context, array $blocks = array())
+    {
         // line 7
+        echo " <div class=\"col-md-6 col-md-offset-3\">
+<div class=\"panel panel-default panel-primary\" id='logpanel'>
+   <div class=\"panel-heading\">
+      <h3 class=\"panel-title\">
+         Change password
+      </h3>
+   </div>
+   <div class=\"panel-body\">
+   <br><br>
+     <div class=\"col-md-8 col-md-offset-2\">
+      <form class=\"bs-example bs-example-form\" name='changeform' action=\"http://127.0.0.1:8000/changepassword/";
+        // line 17
         echo twig_escape_filter($this->env, (isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")), "html", null, true);
-        echo "\" method=\"post\"  style=\"width:350px;margin:0 auto;\">  
-              <input type=\"text\" name=\"newpassword\" id=\"newpassword\" placeholder=\"New password\" style=\"border:3px solid #171717 ; width:100%;border-radius:7px;font-size: 16px;\" />
-              <br><br>
-              <input type=\"password\" name=\"comfrimpassword\" id=\"comfrimpassword\" placeholder=\"Comfirm New Password\" style=\"border:3px solid #171717 ; width:100%;border-radius:7px;font-size: 16px;\"/>
-              <br>
-              <br>
-              <input class=\"btsubmit\" type=\"submit\" name=\"btsend\" value=\"Sgin In\"  style=\"font-size: 20px; color: #EA9D76; font-family: 'OpenSansBold';\"/>
-              <br> <a href=\"#\" style=\"text-align:right;float: right;\">Sign In</a>
-        </form>
-  </div></div>
-  <div class=\"sidebar\">
-  <div class=\"side-paragraph\">
-        <h5>About  Forgotpassword<span class=\"arrow\">&nbsp;</span></h5>
-        <div> <img src=\"";
-        // line 20
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/relaxstyleindex/img/simage.jpg"), "html", null, true);
-        echo "\" alt=\"\" title=\"\" />
-          <p> When you Forgot your password .you can input send a comfirm email to your login email .</p>
-          ";
-        // line 22
-        if (array_key_exists("errormiss", $context)) {
-            // line 23
-            echo "          <p><strong style=\"color:red\">";
-            echo twig_escape_filter($this->env, (isset($context["result"]) ? $context["result"] : $this->getContext($context, "result")), "html", null, true);
-            echo "</strong><p>
-          ";
-        }
-        // line 25
-        echo "          <p>or you can use another email address <p>
-           <p><a href=\"";
-        // line 26
-        echo $this->env->getExtension('routing')->getPath("_Index_createuser");
-        echo "\" style=\"text-align:center;font-weight:bold;color: #EA9D76; font-family: 'OpenSansBold';\">Create new account ➟ </a><p>
-           
-        </div>
-        <span class=\"tail\">&nbsp;</span> </div>
-   </div></div>
-  ";
+        echo "\" role=\"form\" method=\"post\" >
+      <div class=\"input-group input-group\">
+         <span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-lock\"></span></span>
+         <input type=\"password\" class=\"form-control\" name='newpassword' id='password1' placeholder=\"Password\">
+      </div><br>
+      <div class=\"input-group input-group\">
+         <span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-lock\"></span></span>
+         <input type=\"password\" class=\"form-control\" name='comfrimpassword' id='password2' placeholder=\"Comfirm Password\">
+      </div><br>
+         <button type=\"submit\" class=\"btn btn-success\">Submit</button>
+      <br>
+   </form>
+   <hr>
+   </div>
+   </div>
+</div></div>
+";
     }
 
     public function getTemplateName()
@@ -95,6 +89,6 @@ class __TwigTemplate_95aaadd698422be953f8732f4b88d71ae220aa59361593bffcc93678d3d
 
     public function getDebugInfo()
     {
-        return array (  77 => 26,  74 => 25,  68 => 23,  66 => 22,  61 => 20,  45 => 7,  39 => 3,  36 => 2,  11 => 1,);
+        return array (  60 => 17,  48 => 7,  45 => 6,  40 => 3,  37 => 2,  11 => 1,);
     }
 }

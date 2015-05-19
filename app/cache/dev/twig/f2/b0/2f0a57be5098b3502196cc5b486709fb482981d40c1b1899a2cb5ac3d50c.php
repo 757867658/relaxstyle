@@ -18,6 +18,7 @@ class __TwigTemplate_f2b02f0a57be5098b3502196cc5b486709fb482981d40c1b1899a2cb5ac
         }
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'container' => array($this, 'block_container'),
         );
     }
@@ -33,84 +34,113 @@ class __TwigTemplate_f2b02f0a57be5098b3502196cc5b486709fb482981d40c1b1899a2cb5ac
     }
 
     // line 2
-    public function block_container($context, array $blocks = array())
+    public function block_title($context, array $blocks = array())
     {
         // line 3
-        echo "  <div id=\"contents\" class=\"clear\">
-  <div class=\"main-content\">
-<div class=\"form\" >
-<div style=\"margin: 50px auto;text-align:center;font-weight:bold;color: #EA9D76; font-family: 'OpenSansBold';font-size:xx-large;\">Create your Account</div>
-        <form id=\"cform\" name=\"ccfrom\" action=\"";
+        echo "New Account
+";
+    }
+
+    // line 6
+    public function block_container($context, array $blocks = array())
+    {
         // line 7
-        echo $this->env->getExtension('routing')->getPath("_Index_createuser");
-        echo "\" method=\"post\"  onsubmit=\"return validateForm()\" style=\"width:350px;margin:0 auto;\">  
-                <input type=\"text\" class=\"required email\" id=\"email\"  name=\"loginemail\" placeholder=\"Email Address\" style=\"border: 3px solid #171717 ; width:100%;border-radius:7px;font-size: 16px;\" >
-                <br><br>
-\t\t<input type=\"text\" class=\"form-control\" id=\"username\" name=\"loginname\" placeholder=\"Username\" style=\"border:3px solid #171717 ; width:100%;border-radius:7px;font-size: 16px;\" >
-\t\t<br><br>
-\t\t<input type=\"radio\"  name=\"options_sex\" id=\"optionsRadios1\" value=\"Male\"> Male
-\t\t<input type=\"radio\"  name=\"options_sex\" id=\"optionsRadios2\" value=\"Female\"> Female
-\t\t<br><br>
-\t\t<input type=\"password\" class=\"form-control\" id=\"password\" name=\"loginpwd\" maxlength=\"20\" placeholder=\"Password\" style=\" border:3px solid #171717 ; width:100%;border-radius:7px;font-size: 16px; \" >
-\t\t<br><br>
-\t\t<input type=\"password\" class=\"form-control\" id=\"password_confirm\" placeholder=\"Password Confirm\" style=\" border:3px solid #171717 ; width:100%;border-radius:7px;font-size: 16px;\" >
-\t\t<br><br>
-\t\t <input type=\"checkbox\" id=\"privatcyy\" name=\"privacy\" value=\"I_agree\"><space id=\"agree\" >I agree to the</space> <a href=\"javascript:;\" data-toggle=\"modal\" data-target=\"#templatemo_modal\">Terms of Service</a> and <a href=\"#\">Privacy Policy.</a>
-\t\t <br><br>
-\t\t<input type=\"submit\" value=\"Create account\" class=\"btsubmit\" id=\"crtuser\" style=\"font-size: 20px; color: #EA9D76; font-family: 'OpenSansBold';\">\t
-        </form>
-  </div></div>
-  <div class=\"sidebar\">
-   <div class=\"sociable\">
-        <h5>Find me here <span class=\"arrow\">&nbsp;</span></h5>
-        <ul class=\"clear\">
-          <li><a href=\"#\"><img src=\"";
+        echo "<div class=\"col-md-6 col-md-offset-3\">
+<div class=\"panel panel-default panel-primary\" id='logpanel'>
+   <div class=\"panel-heading\">
+      <h3 class=\"panel-title\">
+         New Account
+      </h3>
+   </div>
+   <div class=\"panel-body\">
+   
+          ";
+        // line 16
+        if (array_key_exists("loginerror", $context)) {
+            // line 17
+            echo "           <div class=\"alert alert-warning\" id=\"alert\">
+           <a href=\"#\" class=\"close\" data-dismiss=\"alert\">
+           &times;
+           </a>
+           <strong>Warning!</strong><br>";
+            // line 21
+            echo twig_escape_filter($this->env, (isset($context["loginerror"]) ? $context["loginerror"] : $this->getContext($context, "loginerror")), "html", null, true);
+            echo "!
+           </div>
+          ";
+        } else {
+            // line 24
+            echo "          ";
+        }
+        // line 25
+        echo "  
+   <br><br>
+     <div class=\"col-md-8 col-md-offset-2\">
+      <form class=\"bs-example bs-example-form\" name='createform' role=\"form\" method=\"post\" action=\"";
         // line 28
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/relaxstyleindex/img/icons/dribbble.png"), "html", null, true);
-        echo "\" alt=\"\" title=\"Dribbble\" /></a></li>
-          <li><a href=\"#\"><img src=\"";
-        // line 29
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/relaxstyleindex/img/icons/facebook.png"), "html", null, true);
-        echo "\" alt=\"\" title=\"Facebook\" /></a></li>
-          <li><a href=\"#\"><img src=\"";
-        // line 30
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/relaxstyleindex/img/icons/twitter.png"), "html", null, true);
-        echo "\" alt=\"\" title=\"Twitter\" /></a></li>
-          <li><a href=\"#\"><img src=\"";
-        // line 31
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/relaxstyleindex/img/icons/gplus.png"), "html", null, true);
-        echo "\" alt=\"\" title=\"Google Plus\" /></a></li>
-          <li><a href=\"#\"><img src=\"";
-        // line 32
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/relaxstyleindex/img/icons/rss.png"), "html", null, true);
-        echo "\" alt=\"\" title=\"Subscribe RSS\" /></a></li>
-          <li class=\"last\"><a href=\"#\"><img src=\"";
-        // line 33
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/relaxstyleindex/img/icons/flickr.png"), "html", null, true);
-        echo "\" alt=\"\" title=\"Flickr\" /></a></li>
-        </ul>
-        <span class=\"tail\">&nbsp;</span> 
-  </div>
-  <div class=\"side-paragraph\">
-        <h5>About Singup<span class=\"arrow\">&nbsp;</span></h5>
-        <div> <img src=\"";
-        // line 39
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/relaxstyleindex/img/simage.jpg"), "html", null, true);
-        echo "\" alt=\"\" title=\"\" />
-          <p> When you find a inputbox  appeared red, this express the input  what you inputed  is wrong ,please check. <strong style=\"color:red\">when you alread submit.you will get a email which your use singin ,you can signup success after your comfirm this email . </strong></p>
-        </div>
-        <span class=\"tail\">&nbsp;</span> </div>
-         <div class=\"side-paragraph\">
-        <h5>Alread  had  a account<span class=\"arrow\">&nbsp;</span></h5>
-        <div>
-          <p><a href=\"";
-        // line 46
+        echo $this->env->getExtension('routing')->getPath("_Index_createuser");
+        echo "\">
+      <div class=\"input-group input-group\">
+         <span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-envelope\"></span></span>
+         <input type=\"text\" class=\"form-control\" name='loginemail' id='email' placeholder=\"Email Address\">
+      </div><br>
+      <div class=\"input-group input-group\">
+         <span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-user\"></span></span>
+         <input type=\"text\" class=\"form-control\" name='loginname' id='username' placeholder=\"Username\">
+      </div><br>
+      <label class=\"checkbox-inline\">
+      <input type=\"radio\" name=\"options_sex\" id=\"optionsRadios1\" 
+         value=\"option2\"><b>Male</b>
+      </label>
+      <label class=\"checkbox-inline\">
+      <input type=\"radio\" name=\"options_sex\" id=\"optionsRadios2\" 
+         value=\"option2\"><b>Female</b>
+      </label>
+      <br><br>
+      <div class=\"input-group input-group\">
+         <span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-lock\"></span></span>
+         <input type=\"password\" class=\"form-control\" name='loginpwd' id='password' placeholder=\"Password\">
+      </div><br>
+      <div class=\"input-group input-group\">
+         <span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-lock\"></span></span>
+         <input type=\"password\" class=\"form-control\" name='loginpwdconfirm' id='password_confirm' placeholder=\"Password Confirm\">
+      </div><br>
+      <div class=\"checkbox\">
+       <label><input type=\"checkbox\" id=\"privatcyy\" name=\"privacy\" value=\"agree\">I agree to the <a href=\"#\">Privacy Policy.</a></label>
+      </div>
+         <button type=\"submit\" class=\"btn btn-success\">Submit</button>
+      
+      <br>
+   </form>
+   <hr>
+   </div>
+   </div>
+</div></div>
+<div class=\"col-md-3\">
+<div class=\"panel panel-success panel-primary\" id='logpanel'>
+   <div class=\"panel-heading\">
+      <h3 class=\"panel-title\">
+         About Create Account
+      </h3>
+   </div>
+   <div class=\"panel-body\">
+   <h4><span class=\"glyphicon glyphicon-search text-success\"></span>
+   When you find a inputbox appeared red, this express the input what you inputed is wrong ,please check. when you alread submit.you will get a email which your use singin ,you can signup success after your comfirm this email .</h4>
+    <hr>
+    <div class=\"btn-group\">
+    <big><span class=\"glyphicon glyphicon-hand-right text-success\">  </span></big>
+    <a href=\"";
+        // line 78
         echo $this->env->getExtension('routing')->getPath("_Index_signin");
-        echo "\" style=\"text-align:center;font-weight:bold;color: #EA9D76; font-family: 'OpenSansBold';font-size:20px;\">Sign in ➟ </a><p>
-        </div>
-        <span class=\"tail\">&nbsp;</span> </div>
-   </div></div>
- ";
+        echo "\"><button type=\"button\" class=\"btn btn-success btn-sm\" >Sign In</button></a>
+    <a href=\"";
+        // line 79
+        echo $this->env->getExtension('routing')->getPath("_Index_createuser");
+        echo "\"><button type=\"button\" class=\"btn btn-success btn-sm\">Forgot</button></a>
+    </div>
+   </div>
+</div></div>
+";
     }
 
     public function getTemplateName()
@@ -125,6 +155,6 @@ class __TwigTemplate_f2b02f0a57be5098b3502196cc5b486709fb482981d40c1b1899a2cb5ac
 
     public function getDebugInfo()
     {
-        return array (  108 => 46,  98 => 39,  89 => 33,  85 => 32,  81 => 31,  77 => 30,  73 => 29,  69 => 28,  45 => 7,  39 => 3,  36 => 2,  11 => 1,);
+        return array (  138 => 79,  134 => 78,  81 => 28,  76 => 25,  73 => 24,  67 => 21,  61 => 17,  59 => 16,  48 => 7,  45 => 6,  40 => 3,  37 => 2,  11 => 1,);
     }
 }

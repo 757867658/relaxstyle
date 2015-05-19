@@ -34,7 +34,7 @@ class __TwigTemplate_38a049b2925a1b40758f8f2b856d3e8443de5abf5030745d9b301cfd0d1
     <br/>
 </p>
 <p>
-    <strong>Change your password：</strong><a href=\"http://http://127.0.0.1:8000/changepassword/";
+    <strong>Change your password：</strong><a href=\"http://127.0.0.1:8000/changepassword/";
         // line 16
         echo twig_escape_filter($this->env, (isset($context["accountfind"]) ? $context["accountfind"] : $this->getContext($context, "accountfind")), "html", null, true);
         echo "\" target=\"_blank\">click to change your password</a><br/>

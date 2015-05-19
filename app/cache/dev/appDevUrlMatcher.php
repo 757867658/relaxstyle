@@ -127,6 +127,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        if (0 === strpos($pathinfo, '/blog')) {
+            // _blog_home
+            if ($pathinfo === '/blog/home') {
+                return array (  '_controller' => 'Relaxstyle\\BlogBundle\\Controller\\DefaultController::indexAction',  '_route' => '_blog_home',);
+            }
+
+            // _blog_article_write
+            if ($pathinfo === '/blog/article/write') {
+                return array (  '_controller' => 'Relaxstyle\\BlogBundle\\Controller\\DefaultController::articlewriteAction',  '_route' => '_blog_article_write',);
+            }
+
+        }
+
         // _Index_home
         if ($pathinfo === '/home') {
             return array (  '_controller' => 'Relaxstyle\\IndexBundle\\Controller\\DefaultController::homeAction',  '_route' => '_Index_home',);
@@ -139,7 +152,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         // _Index_createuser
         if ($pathinfo === '/createuser') {
-            return array (  '_controller' => 'Relaxstyle\\IndexBundle\\Controller\\DefaultController::createuserAction',  '_route' => '_Index_createuser',);
+            return array (  '_controller' => 'Relaxstyle\\IndexBundle\\Controller\\DefaultController::createuser1Action',  '_route' => '_Index_createuser',);
         }
 
         // _Index_findpassword

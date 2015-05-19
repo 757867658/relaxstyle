@@ -18,6 +18,7 @@ class __TwigTemplate_d67cb1113a57c527033d7e65783a10598153e6dcbe37058ad8196e3d5fc
         }
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'container' => array($this, 'block_container'),
         );
     }
@@ -32,88 +33,73 @@ class __TwigTemplate_d67cb1113a57c527033d7e65783a10598153e6dcbe37058ad8196e3d5fc
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
-    // line 2
+    // line 3
+    public function block_title($context, array $blocks = array())
+    {
+        // line 4
+        echo "Account Signin
+";
+    }
+
+    // line 7
     public function block_container($context, array $blocks = array())
     {
-        // line 3
-        echo " <div id=\"contents\" class=\"clear\">
-  <div class=\"main-content\">
-<div class=\"form\" >
-<div style=\"margin: 50px auto;text-align:center;font-weight:bold;color: #EA9D76; font-family: 'OpenSansBold';font-size:xx-large;\">Account Signin</div>
-        <form id=\"cform\" action=\"#\" method=\"post\"  style=\"width:350px;margin:0 auto;\">  
-              <input type=\"text\" name=\"email\" id=\"email\" placeholder=\"Email Address\" class=\"required email\" style=\"border:3px solid #171717 ; width:100%;border-radius:7px;font-size: 16px;\" />
-              <br><br>
-              <input type=\"password\" name=\"password\" id=\"password\" placeholder=\"password\" style=\"border:3px solid #171717 ; width:100%;border-radius:7px;font-size: 16px;\"/>
-              <br>
-              <br>
-              <input type=\"checkbox\" id=\"savepasswd\" name=\"rememberme\" value=\"rmb\"> Remember me
-              <br>
-              <br>
-              <input class=\"btsubmit\" type=\"submit\" name=\"btsend\" value=\"Sgin In\"  style=\"font-size: 20px; color: #EA9D76; font-family: 'OpenSansBold';\"/>
-              <a href=\"#\" style=\"text-align:right;float: right;\">Forgot password?</a>
-        </form>
-  </div></div>
-  <div class=\"sidebar\">
-   <div class=\"sociable\">
-        <h5>Find me here <span class=\"arrow\">&nbsp;</span></h5>
-        <ul class=\"clear\">
-          <li><a href=\"#\"><img src=\"";
-        // line 24
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/relaxstyleindex/img/icons/dribbble.png"), "html", null, true);
-        echo "\" alt=\"\" title=\"Dribbble\" /></a></li>
-          <li><a href=\"#\"><img src=\"";
-        // line 25
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/relaxstyleindex/img/icons/facebook.png"), "html", null, true);
-        echo "\" alt=\"\" title=\"Facebook\" /></a></li>
-          <li><a href=\"#\"><img src=\"";
-        // line 26
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/relaxstyleindex/img/icons/twitter.png"), "html", null, true);
-        echo "\" alt=\"\" title=\"Twitter\" /></a></li>
-          <li><a href=\"#\"><img src=\"";
-        // line 27
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/relaxstyleindex/img/icons/gplus.png"), "html", null, true);
-        echo "\" alt=\"\" title=\"Google Plus\" /></a></li>
-          <li><a href=\"#\"><img src=\"";
-        // line 28
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/relaxstyleindex/img/icons/rss.png"), "html", null, true);
-        echo "\" alt=\"\" title=\"Subscribe RSS\" /></a></li>
-          <li class=\"last\"><a href=\"#\"><img src=\"";
-        // line 29
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/relaxstyleindex/img/icons/flickr.png"), "html", null, true);
-        echo "\" alt=\"\" title=\"Flickr\" /></a></li>
-        </ul>
-        <h2 style=\"color: red; font-family: 'OpenSansBold';\"/>
-         ";
-        // line 32
+        // line 8
+        echo "<div class=\"col-md-6 col-md-offset-3\">
+<div class=\"panel panel-default panel-primary\" id='logpanel'>
+   <div class=\"panel-heading\">
+      <h3 class=\"panel-title\">
+         Account Signin
+      </h3>
+   </div>
+   <div class=\"panel-body\">
+   
+          ";
+        // line 17
         if (array_key_exists("loginerror", $context)) {
-            // line 33
-            echo "         ";
+            // line 18
+            echo "           <div class=\"alert alert-warning\" id=\"alert\">
+           <a href=\"#\" class=\"close\" data-dismiss=\"alert\">
+           &times;
+           </a>
+           <strong>Warning!</strong><br>";
+            // line 22
             echo twig_escape_filter($this->env, (isset($context["loginerror"]) ? $context["loginerror"] : $this->getContext($context, "loginerror")), "html", null, true);
-            echo "
-         ";
+            echo "!
+           </div>
+          ";
         } else {
-            // line 35
-            echo "         ";
+            // line 25
+            echo "          ";
         }
-        // line 36
-        echo "        </h2>
-        <span class=\"tail\">&nbsp;</span> 
-  </div>
-  <div class=\"side-paragraph\">
-        <h5>About  Signin <span class=\"arrow\">&nbsp;</span></h5>
-        <div> <img src=\"";
-        // line 41
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/relaxstyleindex/img/simage.jpg"), "html", null, true);
-        echo "\" alt=\"\" title=\"\" />
-          <p> IF you not have a Accout to Signin ,and if you want to join Relaxstyle .yes you can  </p>
-           <p><a href=\"";
+        // line 26
+        echo "  
+   <br><br>
+     <div class=\"col-md-8 col-md-offset-2\">
+      <form class=\"bs-example bs-example-form\" name='signinform' role=\"form\" method=\"post\" action=\"#\">
+      <div class=\"input-group input-group\">
+         <span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-user\"></span></span>
+         <input type=\"text\" class=\"form-control\" name='email' id='email' placeholder=\"Email Address\">
+      </div><br>
+      <div class=\"input-group input-group\">
+         <span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-lock\"></span></span>
+         <input type=\"password\" class=\"form-control\" name='password' id='password' placeholder=\"Password\">
+      </div><br>
+         <button type=\"submit\" class=\"btn btn-success\">Sign In</button>
+         <a href=\"";
+        // line 39
+        echo $this->env->getExtension('routing')->getPath("_Index_findpassword");
+        echo "\" class='pull-right'><small>Forgot password?<small></a>
+      <br>
+   </form>
+   <hr>
+     <h5 class=\"pull-right\"><a href=\"";
         // line 43
         echo $this->env->getExtension('routing')->getPath("_Index_createuser");
-        echo "\" style=\"text-align:center;font-weight:bold;color: #EA9D76; font-family: 'OpenSansBold';font-size:20px;\">Create new account ➟ </a><p>
-           
-        </div>
-        <span class=\"tail\">&nbsp;</span> </div>
-   </div></div>
+        echo "\">Not have a sign accout!</a></h5>
+   </div>
+   </div>
+</div></div>
 ";
     }
 
@@ -129,6 +115,6 @@ class __TwigTemplate_d67cb1113a57c527033d7e65783a10598153e6dcbe37058ad8196e3d5fc
 
     public function getDebugInfo()
     {
-        return array (  111 => 43,  106 => 41,  99 => 36,  96 => 35,  90 => 33,  88 => 32,  82 => 29,  78 => 28,  74 => 27,  70 => 26,  66 => 25,  62 => 24,  39 => 3,  36 => 2,  11 => 1,);
+        return array (  98 => 43,  91 => 39,  76 => 26,  73 => 25,  67 => 22,  61 => 18,  59 => 17,  48 => 8,  45 => 7,  40 => 4,  37 => 3,  11 => 1,);
     }
 }

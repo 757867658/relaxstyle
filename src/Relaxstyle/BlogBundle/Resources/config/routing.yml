@@ -1,0 +1,9 @@
+_Blog: 
+     resource: "@RelaxstyleBlogBundle/Controller/DefaultController.php"
+     type:     annotation
+     prefix:   /
+     
+
+
+
+     
